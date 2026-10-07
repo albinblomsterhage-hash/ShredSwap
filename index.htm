@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ShredSwap — Buy & Sell Ski Gear</title>
+    <title>ShredSwap — Future of skiing</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,491 +15,382 @@
 
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header class="header">
 
     <div class="header-inner">
 
         <a href="#" class="logo">
-            <div class="logo-icon">
+            <div class="logo-mark">
                 ❄
             </div>
 
-            <div>
+            <div class="logo-text">
                 <strong>ShredSwap</strong>
-                <span>FUTURE OF SKIING</span>
+                <span>future of skiing</span>
             </div>
         </a>
 
         <div class="search-box">
-            <span>⌕</span>
+            <span class="search-icon">⌕</span>
             <input
                 type="text"
                 id="searchInput"
-                placeholder="Search for skis, snowboards, boots..."
+                placeholder="Sök efter snowboards, skidor, boots..."
             >
         </div>
 
-        <nav class="main-nav">
+        <nav class="nav">
 
-            <button onclick="scrollToProducts()">
-                Browse
+            <button class="nav-link" onclick="scrollToMarketplace()">
+                Bläddra
             </button>
 
-            <button onclick="openSellModal()">
-                Sell
+            <button class="sell-button" onclick="openSellModal()">
+                + Sälj något
             </button>
 
-            <button class="nav-login" onclick="openLoginModal()">
-                Log in
-            </button>
-
-            <button class="profile-button" onclick="toggleProfileMenu()">
-                <span class="avatar">S</span>
+            <button class="profile-button" onclick="openLoginModal()">
+                Logga in
             </button>
 
         </nav>
-
-        <div class="profile-menu" id="profileMenu">
-
-            <div class="profile-menu-user">
-                <div class="avatar large">S</div>
-
-                <div>
-                    <strong>Shredder</strong>
-                    <small>New member</small>
-                </div>
-            </div>
-
-            <hr>
-
-            <button>👤 My profile</button>
-            <button>❤️ Favorites</button>
-            <button>📦 My orders</button>
-            <button>⚙️ Settings</button>
-
-            <hr>
-
-            <button onclick="openLoginModal()">Log in</button>
-
-        </div>
 
     </div>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<main>
 
-<section class="hero">
+    <!-- HERO -->
 
-    <div class="hero-content">
+    <section class="hero">
 
-        <div class="hero-badge">
-            ❄ The marketplace for winter sports
-        </div>
+        <div class="hero-content">
 
-        <h1>
-            Find your next<br>
-            <span>perfect shred.</span>
-        </h1>
-
-        <p>
-            Buy and sell pre-loved skis, snowboards and winter gear
-            from riders like you.
-        </p>
-
-        <div class="hero-actions">
-
-            <button class="primary-button" onclick="scrollToProducts()">
-                Explore gear
-            </button>
-
-            <button class="secondary-button" onclick="openSellModal()">
-                Sell your gear
-            </button>
-
-        </div>
-
-    </div>
-
-    <div class="hero-art">
-
-        <div class="mountain mountain-back"></div>
-        <div class="mountain mountain-front"></div>
-
-        <div class="hero-snowboard">
-            <div class="board-top"></div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ================= CATEGORY NAV ================= -->
-
-<section class="category-section">
-
-    <div class="category-container">
-
-        <button class="category active" data-category="All">
-            <span>✦</span>
-            All
-        </button>
-
-        <button class="category" data-category="Snowboards">
-            🏂
-            Snowboards
-        </button>
-
-        <button class="category" data-category="Skis">
-            ⛷
-            Skis
-        </button>
-
-        <button class="category" data-category="Boots">
-            👢
-            Boots
-        </button>
-
-        <button class="category" data-category="Bindings">
-            ⚙
-            Bindings
-        </button>
-
-        <button class="category" data-category="Goggles">
-            🥽
-            Goggles
-        </button>
-
-        <button class="category" data-category="Helmets">
-            ⛑
-            Helmets
-        </button>
-
-        <button class="category" data-category="Clothing">
-            🧥
-            Clothing
-        </button>
-
-        <button class="category" data-category="Accessories">
-            🎒
-            Accessories
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- ================= MAIN ================= -->
-
-<main class="marketplace" id="productsSection">
-
-    <div class="marketplace-header">
-
-        <div>
-            <div class="eyebrow">
-                MARKETPLACE
+            <div class="hero-badge">
+                ❄️ Sveriges marketplace för skidåkare
             </div>
 
-            <h2>
-                Explore winter gear
-            </h2>
+            <h1>
+                Find your next
+                <span>perfect shred.</span>
+            </h1>
 
-            <p id="resultCount">
-                12 items
+            <p>
+                Köp och sälj skid- och snowboardutrustning.
+                Billigare för dig. Bättre för planeten.
             </p>
-        </div>
 
-        <div class="marketplace-actions">
+            <div class="hero-actions">
 
-            <button class="filter-mobile-button" onclick="toggleFilters()">
-                ☰ Filters
-            </button>
+                <button class="primary-button" onclick="scrollToMarketplace()">
+                    Utforska produkter
+                    <span>→</span>
+                </button>
 
-            <select id="sortSelect">
-
-                <option value="recommended">
-                    Recommended
-                </option>
-
-                <option value="newest">
-                    Newest
-                </option>
-
-                <option value="price-low">
-                    Price: low to high
-                </option>
-
-                <option value="price-high">
-                    Price: high to low
-                </option>
-
-            </select>
-
-        </div>
-
-    </div>
-
-
-    <div class="marketplace-layout">
-
-
-        <!-- ================= FILTERS ================= -->
-
-        <aside class="filters" id="filters">
-
-            <div class="filters-header">
-
-                <strong>Filters</strong>
-
-                <button onclick="clearFilters()">
-                    Clear all
+                <button class="secondary-button" onclick="openSellModal()">
+                    Sälj din utrustning
                 </button>
 
             </div>
 
+            <div class="hero-stats">
 
-            <div class="filter-group">
+                <div>
+                    <strong>2 500+</strong>
+                    <span>produkter</span>
+                </div>
 
-                <label>
-                    Category
-                </label>
+                <div>
+                    <strong>1 200+</strong>
+                    <span>åkare</span>
+                </div>
 
-                <select id="categoryFilter">
+                <div>
+                    <strong>100%</strong>
+                    <span>shred energy</span>
+                </div>
 
-                    <option value="All">
-                        All categories
-                    </option>
+            </div>
 
-                    <option value="Snowboards">
-                        Snowboards
-                    </option>
+        </div>
 
-                    <option value="Skis">
-                        Skis
-                    </option>
+        <div class="hero-visual">
 
-                    <option value="Boots">
-                        Boots
-                    </option>
+            <div class="floating-card card-one">
+                <span>🔥</span>
+                <div>
+                    <strong>Trending</strong>
+                    <small>Snowboards</small>
+                </div>
+            </div>
 
-                    <option value="Bindings">
-                        Bindings
-                    </option>
+            <div class="mountain-card">
 
-                    <option value="Goggles">
-                        Goggles
-                    </option>
+                <div class="mountain-sky"></div>
 
-                    <option value="Helmets">
-                        Helmets
-                    </option>
+                <div class="mountain mountain-back"></div>
+                <div class="mountain mountain-front"></div>
 
-                    <option value="Clothing">
-                        Clothing
-                    </option>
+                <div class="snowboard-shape"></div>
 
+                <div class="mountain-label">
+                    <small>SHREDSWAP</small>
+                    <strong>RIDE MORE.</strong>
+                </div>
+
+            </div>
+
+            <div class="floating-card card-two">
+                <span>💙</span>
+                <div>
+                    <strong>Pre-loved</strong>
+                    <small>Ready to ride</small>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="categories-section">
+
+        <div class="section-header">
+
+            <div>
+                <span class="eyebrow">SHOP BY CATEGORY</span>
+                <h2>Vad letar du efter?</h2>
+            </div>
+
+            <button class="text-button">
+                Visa alla →
+            </button>
+
+        </div>
+
+        <div class="categories">
+
+            <button class="category active" data-category="all">
+                <span>✨</span>
+                Alla
+            </button>
+
+            <button class="category" data-category="snowboard">
+                <span>🏂</span>
+                Snowboards
+            </button>
+
+            <button class="category" data-category="skis">
+                <span>⛷️</span>
+                Skidor
+            </button>
+
+            <button class="category" data-category="boots">
+                <span>🥾</span>
+                Boots
+            </button>
+
+            <button class="category" data-category="bindings">
+                <span>🔗</span>
+                Bindningar
+            </button>
+
+            <button class="category" data-category="helmets">
+                <span>🪖</span>
+                Hjälmar
+            </button>
+
+            <button class="category" data-category="goggles">
+                <span>🥽</span>
+                Goggles
+            </button>
+
+            <button class="category" data-category="clothing">
+                <span>🧥</span>
+                Kläder
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MARKETPLACE -->
+
+    <section class="marketplace" id="marketplace">
+
+        <div class="marketplace-top">
+
+            <div>
+                <span class="eyebrow">MARKETPLACE</span>
+                <h2>Fresh drops</h2>
+                <p>Nyinkomna prylar från andra riders.</p>
+            </div>
+
+            <div class="marketplace-controls">
+
+                <button class="filter-button" onclick="toggleFilters()">
+                    ☰ Filter
+                </button>
+
+                <select id="sortSelect">
+                    <option value="newest">Nyast först</option>
+                    <option value="low">Pris: lägst först</option>
+                    <option value="high">Pris: högst först</option>
                 </select>
 
             </div>
 
+        </div>
 
-            <div class="filter-group">
 
-                <label>
-                    Price
-                </label>
+        <div class="marketplace-layout">
 
-                <div class="price-inputs">
+            <aside class="filters" id="filters">
 
-                    <input
-                        type="number"
-                        id="minPrice"
-                        placeholder="Min"
-                    >
+                <div class="filter-title">
+                    <strong>Filter</strong>
+                    <button onclick="clearFilters()">Rensa</button>
+                </div>
 
-                    <span>—</span>
+                <div class="filter-group">
 
-                    <input
-                        type="number"
-                        id="maxPrice"
-                        placeholder="Max"
-                    >
+                    <label>Kategori</label>
+
+                    <select id="categoryFilter">
+
+                        <option value="all">Alla kategorier</option>
+                        <option value="snowboard">Snowboards</option>
+                        <option value="skis">Skidor</option>
+                        <option value="boots">Boots</option>
+                        <option value="bindings">Bindningar</option>
+                        <option value="helmets">Hjälmar</option>
+                        <option value="goggles">Goggles</option>
+                        <option value="clothing">Kläder</option>
+
+                    </select>
 
                 </div>
 
-            </div>
 
+                <div class="filter-group">
 
-            <div class="filter-group">
+                    <label>Pris</label>
 
-                <label>
-                    Condition
-                </label>
+                    <div class="price-inputs">
 
-                <label class="checkbox">
-                    <input type="checkbox" value="New" class="condition-filter">
-                    <span>New</span>
-                </label>
+                        <input
+                            type="number"
+                            id="minPrice"
+                            placeholder="Från"
+                        >
 
-                <label class="checkbox">
-                    <input type="checkbox" value="Like new" class="condition-filter">
-                    <span>Like new</span>
-                </label>
+                        <span>–</span>
 
-                <label class="checkbox">
-                    <input type="checkbox" value="Very good" class="condition-filter">
-                    <span>Very good</span>
-                </label>
+                        <input
+                            type="number"
+                            id="maxPrice"
+                            placeholder="Till"
+                        >
 
-                <label class="checkbox">
-                    <input type="checkbox" value="Good" class="condition-filter">
-                    <span>Good</span>
-                </label>
-
-            </div>
-
-
-            <div class="filter-group">
-
-                <label>
-                    Size
-                </label>
-
-                <div class="size-grid">
-
-                    <button>S</button>
-                    <button>M</button>
-                    <button>L</button>
-                    <button>XL</button>
-                    <button>156</button>
-                    <button>158</button>
-                    <button>160</button>
-                    <button>164</button>
+                    </div>
 
                 </div>
 
-            </div>
 
+                <div class="filter-group">
 
-            <div class="sell-box">
+                    <label>Skick</label>
 
-                <div class="sell-box-icon">
-                    +
+                    <label class="check">
+                        <input type="checkbox" value="new" class="condition">
+                        <span>Nyskick</span>
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="very-good" class="condition">
+                        <span>Mycket bra</span>
+                    </label>
+
+                    <label class="check">
+                        <input type="checkbox" value="good" class="condition">
+                        <span>Bra</span>
+                    </label>
+
                 </div>
 
-                <strong>
-                    Got gear to sell?
-                </strong>
+            </aside>
 
-                <p>
-                    Turn unused gear into cash.
-                </p>
 
-                <button onclick="openSellModal()">
-                    Sell an item
-                </button>
+            <div class="products-area">
+
+                <div class="products" id="productGrid"></div>
 
             </div>
 
-        </aside>
+        </div>
+
+    </section>
 
 
-        <!-- ================= PRODUCTS ================= -->
+    <!-- SELL CTA -->
 
-        <section class="products">
+    <section class="sell-cta">
 
-            <div id="productGrid" class="product-grid"></div>
+        <div>
 
-            <div id="emptyState" class="empty-state">
+            <span class="cta-badge">GÖR PLATS FÖR NÄSTA ÄVENTYR</span>
 
-                <div>
-                    🔎
-                </div>
+            <h2>
+                Har du gear du inte använder?
+            </h2>
 
-                <h3>
-                    No items found
-                </h3>
+            <p>
+                Lägg upp den på ShredSwap och låt någon annan
+                få uppleva nästa stora åk.
+            </p>
 
-                <p>
-                    Try changing your filters or search.
-                </p>
+            <button class="white-button" onclick="openSellModal()">
+                + Sälj något
+            </button>
 
-                <button onclick="clearFilters()">
-                    Clear filters
-                </button>
+        </div>
 
-            </div>
+        <div class="cta-snowflake">
+            ❄
+        </div>
 
-        </section>
-
-    </div>
+    </section>
 
 </main>
 
 
-<!-- ================= SELL CTA ================= -->
-
-<section class="large-sell-section">
-
-    <div>
-
-        <span class="eyebrow">
-            GOT GEAR?
-        </span>
-
-        <h2>
-            Your old gear<br>
-            could be someone's<br>
-            next adventure.
-        </h2>
-
-        <p>
-            List your equipment for free and earn money
-            when another rider buys it.
-        </p>
-
-        <button class="primary-button" onclick="openSellModal()">
-            Start selling
-        </button>
-
-    </div>
-
-    <div class="sell-illustration">
-        🏂
-    </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
-    <div class="footer-main">
+    <div class="footer-inner">
 
         <div class="footer-brand">
 
             <div class="logo">
 
-                <div class="logo-icon">
+                <div class="logo-mark">
                     ❄
                 </div>
 
-                <div>
+                <div class="logo-text">
                     <strong>ShredSwap</strong>
-                    <span>FUTURE OF SKIING</span>
+                    <span>future of skiing</span>
                 </div>
 
             </div>
 
             <p>
-                The marketplace built for people
-                who live for the mountain.
+                Buy less new.<br>
+                Ride more.
             </p>
 
         </div>
@@ -507,41 +398,35 @@
 
         <div class="footer-column">
 
-            <strong>
-                Marketplace
-            </strong>
+            <strong>Marketplace</strong>
 
-            <a>Browse</a>
-            <a>Sell</a>
-            <a>How it works</a>
-            <a>Safety</a>
+            <a href="#">Snowboards</a>
+            <a href="#">Skidor</a>
+            <a href="#">Boots</a>
+            <a href="#">Kläder</a>
 
         </div>
 
 
         <div class="footer-column">
 
-            <strong>
-                ShredSwap
-            </strong>
+            <strong>ShredSwap</strong>
 
-            <a>About us</a>
-            <a>Careers</a>
-            <a>Contact</a>
-            <a>Help centre</a>
+            <a href="#">Om oss</a>
+            <a href="#">Hur det fungerar</a>
+            <a href="#">Sälj</a>
+            <a href="#">Support</a>
 
         </div>
 
 
         <div class="footer-column">
 
-            <strong>
-                Follow
-            </strong>
+            <strong>Följ oss</strong>
 
-            <a>Instagram</a>
-            <a>TikTok</a>
-            <a>YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
 
         </div>
 
@@ -549,29 +434,19 @@
 
 
     <div class="footer-bottom">
-
-        <span>
-            © 2026 ShredSwap
-        </span>
-
-        <span>
-            Built for the next generation of riders.
-        </span>
-
+        © 2026 ShredSwap.eu · Future of skiing
     </div>
 
 </footer>
 
 
-<!-- ================= PRODUCT MODAL ================= -->
+<!-- PRODUCT MODAL -->
 
-<div class="modal" id="productModal">
+<div class="modal-overlay" id="productModal">
 
-    <div class="modal-overlay" onclick="closeProductModal()"></div>
+    <div class="modal product-modal">
 
-    <div class="product-modal">
-
-        <button class="modal-close" onclick="closeProductModal()">
+        <button class="close-button" onclick="closeModal('productModal')">
             ×
         </button>
 
@@ -582,46 +457,43 @@
 </div>
 
 
-<!-- ================= LOGIN MODAL ================= -->
+<!-- LOGIN MODAL -->
 
-<div class="modal" id="loginModal">
+<div class="modal-overlay" id="loginModal">
 
-    <div class="modal-overlay" onclick="closeLoginModal()"></div>
+    <div class="modal small-modal">
 
-    <div class="small-modal">
-
-        <button class="modal-close" onclick="closeLoginModal()">
+        <button class="close-button" onclick="closeModal('loginModal')">
             ×
         </button>
 
-        <div class="modal-logo">
-            ❄
+        <div class="modal-icon">
+            ❄️
         </div>
 
-        <h2>
-            Welcome to ShredSwap
-        </h2>
+        <h2>Välkommen till ShredSwap</h2>
 
         <p>
-            Log in to buy gear, save favorites and sell your equipment.
+            Logga in för att köpa, sälja och spara favoriter.
         </p>
 
         <input
-            id="emailInput"
             type="email"
-            placeholder="Email address"
+            id="loginEmail"
+            placeholder="Din e-post"
         >
 
-        <button class="primary-button full" onclick="fakeLogin()">
-            Continue
+        <input
+            type="password"
+            placeholder="Lösenord"
+        >
+
+        <button class="primary-button full" onclick="login()">
+            Logga in
         </button>
 
-        <div class="divider">
-            <span>or</span>
-        </div>
-
-        <button class="social-button">
-            Continue with Google
+        <button class="google-button">
+            Fortsätt med Google
         </button>
 
     </div>
@@ -629,168 +501,85 @@
 </div>
 
 
-<!-- ================= SELL MODAL ================= -->
+<!-- SELL MODAL -->
 
-<div class="modal" id="sellModal">
+<div class="modal-overlay" id="sellModal">
 
-    <div class="modal-overlay" onclick="closeSellModal()"></div>
+    <div class="modal sell-modal">
 
-    <div class="sell-modal">
-
-        <button class="modal-close" onclick="closeSellModal()">
+        <button class="close-button" onclick="closeModal('sellModal')">
             ×
         </button>
 
-        <div class="modal-heading">
+        <span class="eyebrow">SELL ON SHREDSWAP</span>
 
-            <span class="eyebrow">
-                SELL ON SHREDSWAP
-            </span>
+        <h2>Sälj din gear</h2>
 
-            <h2>
-                List your gear
-            </h2>
-
-            <p>
-                Listing is free. You only pay when your item sells.
-            </p>
-
-        </div>
-
+        <p>
+            Lägg upp din utrustning på bara några minuter.
+        </p>
 
         <form id="sellForm">
 
-            <div class="upload-area">
+            <input
+                type="text"
+                id="sellTitle"
+                placeholder="Vad säljer du?"
+                required
+            >
+
+            <select id="sellCategory" required>
+
+                <option value="">Välj kategori</option>
+                <option value="snowboard">Snowboard</option>
+                <option value="skis">Skidor</option>
+                <option value="boots">Boots</option>
+                <option value="bindings">Bindningar</option>
+                <option value="helmets">Hjälm</option>
+                <option value="goggles">Goggles</option>
+                <option value="clothing">Kläder</option>
+
+            </select>
+
+            <input
+                type="number"
+                id="sellPrice"
+                placeholder="Pris i SEK"
+                required
+            >
+
+            <select id="sellCondition" required>
+
+                <option value="">Välj skick</option>
+                <option value="new">Nyskick</option>
+                <option value="very-good">Mycket bra</option>
+                <option value="good">Bra</option>
+
+            </select>
+
+            <textarea
+                id="sellDescription"
+                placeholder="Beskriv din produkt..."
+            ></textarea>
+
+            <label class="upload">
+
+                <span>📸</span>
+
+                <strong>Lägg till bilder</strong>
+
+                <small>PNG eller JPG</small>
 
                 <input
                     type="file"
-                    id="photoInput"
+                    id="sellImage"
                     accept="image/*"
                 >
 
-                <div class="upload-content">
-                    <div>＋</div>
-                    <strong>Add photos</strong>
-                    <span>JPG or PNG</span>
-                </div>
-
-            </div>
-
-
-            <div id="photoPreview" class="photo-preview"></div>
-
-
-            <label>
-                Title
-
-                <input
-                    id="sellTitle"
-                    required
-                    placeholder="e.g. Burton Custom Snowboard 158"
-                >
-
             </label>
-
-
-            <div class="form-row">
-
-                <label>
-                    Category
-
-                    <select id="sellCategory">
-
-                        <option>
-                            Snowboards
-                        </option>
-
-                        <option>
-                            Skis
-                        </option>
-
-                        <option>
-                            Boots
-                        </option>
-
-                        <option>
-                            Bindings
-                        </option>
-
-                        <option>
-                            Goggles
-                        </option>
-
-                        <option>
-                            Helmets
-                        </option>
-
-                        <option>
-                            Clothing
-                        </option>
-
-                    </select>
-
-                </label>
-
-
-                <label>
-                    Price
-
-                    <input
-                        id="sellPrice"
-                        type="number"
-                        required
-                        placeholder="2800"
-                    >
-
-                </label>
-
-            </div>
-
-
-            <label>
-                Condition
-
-                <select id="sellCondition">
-
-                    <option>
-                        New
-                    </option>
-
-                    <option>
-                        Like new
-                    </option>
-
-                    <option selected>
-                        Very good
-                    </option>
-
-                    <option>
-                        Good
-                    </option>
-
-                    <option>
-                        Used
-                    </option>
-
-                </select>
-
-            </label>
-
-
-            <label>
-                Description
-
-                <textarea
-                    id="sellDescription"
-                    rows="4"
-                    placeholder="Tell buyers about the gear..."
-                ></textarea>
-
-            </label>
-
 
             <button class="primary-button full" type="submit">
-                Publish listing
+                Publicera annons
             </button>
 
         </form>
@@ -800,58 +589,9 @@
 </div>
 
 
-<!-- ================= CHECKOUT MODAL ================= -->
+<!-- TOAST -->
 
-<div class="modal" id="checkoutModal">
-
-    <div class="modal-overlay" onclick="closeCheckout()"></div>
-
-    <div class="small-modal">
-
-        <button class="modal-close" onclick="closeCheckout()">
-            ×
-        </button>
-
-        <span class="eyebrow">
-            CHECKOUT
-        </span>
-
-        <h2>
-            Complete your purchase
-        </h2>
-
-        <div id="checkoutProduct"></div>
-
-        <label>
-            Full name
-
-            <input placeholder="Your name">
-        </label>
-
-        <label>
-            Delivery address
-
-            <input placeholder="Street, city, postcode">
-        </label>
-
-        <label>
-            Payment
-
-            <input placeholder="Card number">
-        </label>
-
-        <button class="primary-button full" onclick="completePurchase()">
-            Pay securely
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ================= TOAST ================= -->
-
-<div id="toast" class="toast">
+<div class="toast" id="toast">
     <span>✓</span>
     <p></p>
 </div>
